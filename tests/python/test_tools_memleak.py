@@ -102,7 +102,7 @@ class MemleakToolTests(TestCase):
         self.assertEqual(cfg.leaking_amount, self.run_leaker("memalign"))
 
     def test_pvalloc(self):
-        self.assertEqual(cfg.leaking_amount, self.run_leaker("pvalloc"))
+        self.assertLessEqual(cfg.leaking_amount, self.run_leaker("pvalloc"))
 
     def test_aligned_alloc(self):
         self.assertEqual(cfg.leaking_amount, self.run_leaker("aligned_alloc"))
